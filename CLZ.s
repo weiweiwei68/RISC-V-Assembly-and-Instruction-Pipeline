@@ -1,6 +1,6 @@
 .data
 # num1 and num2 represent two separate 32-bit data values that can be combined to form a single 64-bit data value
-num1: .word 0xAB52EF8D
+num1: .word 0x2B52EF8D
 num2: .word 0x465C46C8
 
 num3: .word 0xFF54C6B8
@@ -14,6 +14,10 @@ main:
     lw a0, num2
     lw a1, num1
     jal ra, count_leading_zeros
+    
+    #Exit program
+    li a7, 10
+    ecall
     
 count_leading_zeros:
     addi sp, sp, -24
@@ -47,7 +51,8 @@ count_ones: # Count ones (population count)
     srli a2, a0, 1           # shift right 1 bit in x_low
     or a2, a2, a3
     srli a4, a1, 1           #shift right 1 bit in x_high
-    addi t0, x0, 0x55555555  # t0 = 0x55555555
+    li a7, 0x55555555
+    add t0, x0, a7
     and a2, a2, t0
     and a4, a4, t0
     # x = a1 a0 - a4 a2
@@ -61,7 +66,8 @@ count_ones: # Count ones (population count)
     srli a2, a0, 2           # shift right 2 bits in x_low
     or a2, a2, a3
     srli a4, a1, 2           #shift right 2 bits in x_high
-    addi t0, x0, 0x33333333  # t0 = 0x33333333
+    li a7, 0x33333333
+    add t0, x0, a7
     and a2, a2, t0       # lower 32 bits of ((x >> 2) & 0x3333333333333333)
     and a4, a4, t0       # higher 32 bits of ((x >> 2) & 0x3333333333333333)
     and a0, a0, t0       # lower 32 bits of (x & 0x3333333333333333)
@@ -83,7 +89,8 @@ count_ones: # Count ones (population count)
     add a1, a1, a4
     add a1, a1, a5
     # a1 a0 & 0x0f0f0f0f0f0f0f0f
-    addi t0, x0, 0x0f0f0f0f # t0 = 0x0f0f0f0f
+    li a7, 0x0f0f0f0f
+    add t0, x0, a7
     and a0, a0, t0
     and a1, a1, t0
     
@@ -110,10 +117,11 @@ count_ones: # Count ones (population count)
     add a1, a1, a5
     
     # x += (x >> 32)
-    slli a3, a1, 0      #put the shift value from x_high to correct position
-    srli a2, a0, 32     # shift right 4 bits in x_low
+    slli a3, a1, 0
+    li a7, 32      #put the shift value from x_high to correct position
+    srl a2, a0, a7 
     or a2, a2, a3
-    srli a4, a1, 32     #shift right 4 bits in x_high
+    srl a4, a1, s7 
     # x = a1 a0 + a4 a2
     add a0, a0, a2
     slt a5, a0, a2      # a5 = 1 when a0 < a2
@@ -127,3 +135,4 @@ count_ones: # Count ones (population count)
     lw ra, 16(sp)
     addi sp, sp, 24
     ret
+        

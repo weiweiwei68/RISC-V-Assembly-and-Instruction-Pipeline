@@ -1,360 +1,229 @@
-count_leading_zeros(unsigned long long):
-        addi    sp,sp,-144
-        sw      ra,140(sp)
-        sw      s0,136(sp)
-        sw      s2,132(sp)
-        sw      s3,128(sp)
-        sw      s4,124(sp)
-        sw      s5,120(sp)
-        sw      s6,116(sp)
-        sw      s7,112(sp)
-        sw      s8,108(sp)
-        sw      s9,104(sp)
-        sw      s10,100(sp)
-        sw      s11,96(sp)
-        addi    s0,sp,144
-        sw      a0,-56(s0)
-        sw      a1,-52(s0)
-        lw      a5,-52(s0)
-        slli    a4,a5,31
-        lw      a5,-56(s0)
-        srli    a2,a5,1
-        or      a2,a4,a2
-        lw      a5,-52(s0)
-        srli    a3,a5,1
-        lw      a5,-56(s0)
-        or      t5,a5,a2
-        lw      a5,-52(s0)
-        or      t6,a5,a3
-        sw      t5,-56(s0)
-        sw      t6,-52(s0)
-        lw      a5,-52(s0)
-        slli    a4,a5,30
-        lw      a5,-56(s0)
-        srli    a6,a5,2
-        or      a6,a4,a6
-        lw      a5,-52(s0)
-        srli    a7,a5,2
-        lw      a5,-56(s0)
-        or      a5,a5,a6
-        sw      a5,-104(s0)
-        lw      a5,-52(s0)
-        or      a5,a5,a7
-        sw      a5,-100(s0)
-        lw      a5,-104(s0)
-        lw      a6,-100(s0)
-        sw      a5,-56(s0)
-        sw      a6,-52(s0)
-        lw      a5,-52(s0)
-        slli    a4,a5,28
-        lw      a5,-56(s0)
-        srli    t3,a5,4
-        or      t3,a4,t3
-        lw      a5,-52(s0)
-        srli    t4,a5,4
-        lw      a5,-56(s0)
-        or      a5,a5,t3
-        sw      a5,-112(s0)
-        lw      a5,-52(s0)
-        or      a5,a5,t4
-        sw      a5,-108(s0)
-        lw      a5,-112(s0)
-        lw      a6,-108(s0)
-        sw      a5,-56(s0)
-        sw      a6,-52(s0)
-        lw      a5,-52(s0)
-        slli    a4,a5,24
-        lw      a5,-56(s0)
-        srli    a5,a5,8
-        sw      a5,-64(s0)
-        lw      a5,-64(s0)
-        or      a5,a4,a5
-        sw      a5,-64(s0)
-        lw      a5,-52(s0)
-        srli    a5,a5,8
-        sw      a5,-60(s0)
-        lw      a5,-56(s0)
-        lw      a3,-64(s0)
-        lw      a4,-60(s0)
-        mv      a2,a3
-        or      a5,a5,a2
-        sw      a5,-120(s0)
-        lw      a5,-52(s0)
-        or      a5,a5,a4
-        sw      a5,-116(s0)
-        lw      a5,-120(s0)
-        lw      a6,-116(s0)
-        sw      a5,-56(s0)
-        sw      a6,-52(s0)
-        lw      a5,-52(s0)
-        slli    a5,a5,16
-        lw      a4,-56(s0)
-        srli    s10,a4,16
-        or      s10,a5,s10
-        lw      a5,-52(s0)
-        srli    s11,a5,16
-        lw      a5,-56(s0)
-        or      a5,a5,s10
-        sw      a5,-128(s0)
-        lw      a5,-52(s0)
-        or      a5,a5,s11
-        sw      a5,-124(s0)
-        lw      a5,-128(s0)
-        lw      a6,-124(s0)
-        sw      a5,-56(s0)
-        sw      a6,-52(s0)
-        lw      a5,-52(s0)
-        srli    a5,a5,0
-        sw      a5,-72(s0)
-        sw      zero,-68(s0)
-        lw      a5,-56(s0)
-        lw      a3,-72(s0)
-        lw      a4,-68(s0)
-        mv      a2,a3
-        or      a5,a5,a2
-        sw      a5,-136(s0)
-        lw      a5,-52(s0)
-        or      a5,a5,a4
-        sw      a5,-132(s0)
-        lw      a5,-136(s0)
-        lw      a6,-132(s0)
-        sw      a5,-56(s0)
-        sw      a6,-52(s0)
-        lw      a5,-52(s0)
-        slli    a5,a5,31
-        lw      a4,-56(s0)
-        srli    s8,a4,1
-        or      s8,a5,s8
-        lw      a5,-52(s0)
-        srli    s9,a5,1
-        li      a5,1431654400
-        addi    a5,a5,1365
-        and     a5,s8,a5
-        sw      a5,-80(s0)
-        li      a5,1431654400
-        addi    a5,a5,1365
-        and     a5,s9,a5
-        sw      a5,-76(s0)
-        lw      a2,-56(s0)
-        lw      a3,-52(s0)
-        lw      a6,-80(s0)
-        lw      a7,-76(s0)
-        mv      a1,a6
-        sub     a4,a2,a1
-        mv      a1,a4
-        sgtu    a1,a1,a2
-        mv      a0,a7
-        sub     a5,a3,a0
-        sub     a3,a5,a1
-        mv      a5,a3
-        sw      a4,-56(s0)
-        sw      a5,-52(s0)
-        lw      a5,-52(s0)
-        slli    a5,a5,30
-        lw      a4,-56(s0)
-        srli    s6,a4,2
-        or      s6,a5,s6
-        lw      a5,-52(s0)
-        srli    s7,a5,2
-        li      a5,858992640
-        addi    a5,a5,819
-        and     a5,s6,a5
-        sw      a5,-88(s0)
-        li      a5,858992640
-        addi    a5,a5,819
-        and     a5,s7,a5
-        sw      a5,-84(s0)
-        lw      a4,-56(s0)
-        li      a5,858992640
-        addi    a5,a5,819
-        and     a5,a4,a5
-        sw      a5,-96(s0)
-        lw      a4,-52(s0)
-        li      a5,858992640
-        addi    a5,a5,819
-        and     a5,a4,a5
-        sw      a5,-92(s0)
-        lw      a1,-88(s0)
-        lw      a2,-84(s0)
-        mv      a3,a1
-        lw      a6,-96(s0)
-        lw      a7,-92(s0)
-        mv      a0,a6
-        add     a4,a3,a0
-        mv      a3,a4
-        mv      a0,a1
-        sltu    a3,a3,a0
-        mv      a1,a7
-        add     a5,a2,a1
-        add     a3,a3,a5
-        mv      a5,a3
-        sw      a4,-56(s0)
-        sw      a5,-52(s0)
-        lw      a5,-52(s0)
-        slli    a5,a5,28
-        lw      a4,-56(s0)
-        srli    t1,a4,4
-        or      t1,a5,t1
-        lw      a5,-52(s0)
-        srli    t2,a5,4
-        lw      a2,-56(s0)
-        lw      a3,-52(s0)
-        add     a4,t1,a2
-        mv      a1,a4
-        sltu    a1,a1,t1
-        add     a5,t2,a3
-        add     a3,a1,a5
-        mv      a5,a3
-        li      a3,252645376
-        addi    a3,a3,-241
-        and     a3,a4,a3
-        sw      a3,-56(s0)
-        li      a3,252645376
-        addi    a3,a3,-241
-        and     a5,a5,a3
-        sw      a5,-52(s0)
-        lw      a5,-52(s0)
-        slli    a5,a5,24
-        lw      a4,-56(s0)
-        srli    s4,a4,8
-        or      s4,a5,s4
-        lw      a5,-52(s0)
-        srli    s5,a5,8
-        lw      a2,-56(s0)
-        lw      a3,-52(s0)
-        add     a4,a2,s4
-        mv      a1,a4
-        sltu    a1,a1,a2
-        add     a5,a3,s5
-        add     a3,a1,a5
-        mv      a5,a3
-        sw      a4,-56(s0)
-        sw      a5,-52(s0)
-        lw      a5,-52(s0)
-        slli    a5,a5,16
-        lw      a4,-56(s0)
-        srli    s2,a4,16
-        or      s2,a5,s2
-        lw      a5,-52(s0)
-        srli    s3,a5,16
-        lw      a2,-56(s0)
-        lw      a3,-52(s0)
-        add     a4,a2,s2
-        mv      a1,a4
-        sltu    a1,a1,a2
-        add     a5,a3,s3
-        add     a3,a1,a5
-        mv      a5,a3
-        sw      a4,-56(s0)
-        sw      a5,-52(s0)
-        lhu     a5,-56(s0)
-        andi    a5,a5,127
-        slli    a5,a5,16
-        srli    a5,a5,16
-        li      a4,64
-        sub     a5,a4,a5
-        slli    a5,a5,16
-        srli    a5,a5,16
-        mv      a0,a5
-        lw      ra,140(sp)
-        lw      s0,136(sp)
-        lw      s2,132(sp)
-        lw      s3,128(sp)
-        lw      s4,124(sp)
-        lw      s5,120(sp)
-        lw      s6,116(sp)
-        lw      s7,112(sp)
-        lw      s8,108(sp)
-        lw      s9,104(sp)
-        lw      s10,100(sp)
-        lw      s11,96(sp)
-        addi    sp,sp,144
-        jr      ra
-buffer_overflow_attack(char*):
-        addi    sp,sp,-48
-        sw      ra,44(sp)
-        sw      s0,40(sp)
-        addi    s0,sp,48
-        sw      a0,-36(s0)
-        li      a4,-559038464
-        addi    a4,a4,-273
-        li      a5,0
-        sw      a4,-24(s0)
-        sw      a5,-20(s0)
-        lw      a5,-36(s0)
-        addi    a3,a5,4
-        lw      a4,-24(s0)
-        lw      a5,-20(s0)
-        sw      a4,0(a3)
-        sw      a5,4(a3)
-        nop
-        lw      ra,44(sp)
-        lw      s0,40(sp)
-        addi    sp,sp,48
-        jr      ra
-.LC1:
-        .string "Buffer overflow detected! The value start to be different at %d bits from left.\n"
-.LC2:
-        .string "No buffer overflow detected."
+.data
+# num1 and num2 represent two separate 32-bit data values that can be combined to form a single 64-bit data value
+num1: .word 0xF2345678
+num2: .word 0x9ABCDEF0
+#Malicious address
+num3: .word 0x12345678
+num4: .word 0xDEADBEEF
+
+
+.text
 main:
-        addi    sp,sp,-80
-        sw      ra,76(sp)
-        sw      s0,72(sp)
-        sw      s2,68(sp)
-        sw      s3,64(sp)
-        addi    s0,sp,80
-        lui     a5,%hi(.LC0)
-        lw      a4,%lo(.LC0)(a5)
-        lw      a5,%lo(.LC0+4)(a5)
-        sw      a4,-24(s0)
-        sw      a5,-20(s0)
-        addi    a3,s0,-68
-        lw      a4,-24(s0)
-        lw      a5,-20(s0)
-        sw      a4,0(a3)
-        sw      a5,4(a3)
-        addi    a5,s0,-68
-        mv      a0,a5
-        call    buffer_overflow_attack(char*)
-        addi    a5,s0,-68
-        lw      a4,0(a5)
-        lw      a5,4(a5)
-        sw      a4,-32(s0)
-        sw      a5,-28(s0)
-        lw      a4,-32(s0)
-        lw      a5,-24(s0)
-        xor     s2,a4,a5
-        lw      a4,-28(s0)
-        lw      a5,-20(s0)
-        xor     s3,a4,a5
-        mv      a0,s2
-        mv      a1,s3
-        call    count_leading_zeros(unsigned long long)
-        mv      a5,a0
-        sh      a5,-34(s0)
-        lhu     a4,-34(s0)
-        li      a5,64
-        beq     a4,a5,.L5
-        lhu     a5,-34(s0)
-        addi    a5,a5,1
-        mv      a1,a5
-        lui     a5,%hi(.LC1)
-        addi    a0,a5,%lo(.LC1)
-        call    printf
-        j       .L6
-.L5:
-        lui     a5,%hi(.LC2)
-        addi    a0,a5,%lo(.LC2)
-        call    puts
-.L6:
-        li      a5,0
-        mv      a0,a5
-        lw      ra,76(sp)
-        lw      s0,72(sp)
-        lw      s2,68(sp)
-        lw      s3,64(sp)
-        addi    sp,sp,80
-        jr      ra
-.LC0:
-        .word   -1698898192
-        .word   305419896
+    lw a0, num2
+    lw a1, num1
+    lw a2, num4
+    lw a3, num3
+    xor a0, a0, a2
+    xor a1, a1, a3
+    jal ra, count_leading_zeros
+    
+    #Exit program
+    li a7, 10
+    ecall
+    
+count_leading_zeros:
+    addi sp, sp, -24
+    sw ra, 16(sp)
+    sw a0, 8(sp)
+    sw a1, 0(sp)
+    # Prepare two registers for storing argument x
+    # Arguments: a0 = x_low (lower 32 bits of x)
+    #            a1 = x_high (upper 32 bits of x)
+    # Return value: a0 = number of leading zeros
+    
+    # Initialize the x as input value
+    add a0, a0, x0           # a0 = x_low
+    add a1, a1, x0           # a1 = x_high
+    addi t0, x0, 32          # t0 = 32
+    addi t1, x0, 1           # t1 = 1, 2, 4, 8, 16, 32 for each iteration
+loop: # x |= (x >> n) 
+    sub t2, t0, t1           # t2 = 31, 30, 28, 24, 16, 0 for each iteration
+    sll a3, a1, t2      #put the shift value from x_high to correct position
+    srl a2, a0, t1           # shift right t1 bits in x_low
+    or a2, a2, a3            # add the shift value from x_high to x_low
+    or a0, a0, a2            # or x_low
+    srl a2, a1, t1           # shift x_high
+    or a1, a1, a2            # or x_high
+    slli t1, t1, 1
+    bge t0, t1, loop
+    
+count_ones: # Count ones (population count)
+    # x -= ((x >> 1) & 0x5555555555555555)
+    slli a3, a1, 31          #put the shift value from x_high to correct position
+    srli a2, a0, 1           # shift right 1 bit in x_low
+    or a2, a2, a3
+    srli a4, a1, 1           #shift right 1 bit in x_high
+    li a7, 0x55555555
+    add t0, x0, a7
+    and a2, a2, t0
+    and a4, a4, t0
+    # x = a1 a0 - a4 a2
+    bge a2, a0, sub           # a5 = 1 when a0 < a2
+    sub a0, a0, a2
+    sub a1, a1, a4
+    #sub a1, a1, a5
+    
+    # x = ((x >> 2) & 0x3333333333333333) + (x & 0x3333333333333333)
+    slli a3, a1, 30     #put the shift value from x_high to correct position
+    srli a2, a0, 2           # shift right 2 bits in x_low
+    or a2, a2, a3
+    srli a4, a1, 2           #shift right 2 bits in x_high
+    li a7, 0x33333333
+    add t0, x0, a7
+    and a2, a2, t0       # lower 32 bits of ((x >> 2) & 0x3333333333333333)
+    and a4, a4, t0       # higher 32 bits of ((x >> 2) & 0x3333333333333333)
+    and a0, a0, t0       # lower 32 bits of (x & 0x3333333333333333)
+    and a1, a1, t0       # higher 32 bits of (x & 0x3333333333333333)
+    # x = a4 a2 + a1 a0
+    add a0, a0, a2
+    slt a5, a0, a2           # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    
+    # x = ((x >> 4) + x) & 0x0f0f0f0f0f0f0f0f
+    slli a3, a1, 28     #put the shift value from x_high to correct position
+    srli a2, a0, 4      # shift right 4 bits in x_low
+    or a2, a2, a3
+    srli a4, a1, 4      # shift right 4 bits in x_high
+    # add a4 a2 and a1 a0. ((x >> 4) + x)
+    add a0, a0, a2
+    slt a5, a0, a2      # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    # a1 a0 & 0x0f0f0f0f0f0f0f0f
+    li a7, 0x0f0f0f0f
+    add t0, x0, a7
+    and a0, a0, t0
+    and a1, a1, t0
+    
+    # x += (x >> 8)
+    slli a3, a1, 24     #put the shift value from x_high to correct position
+    srli a2, a0, 8      # shift right 4 bits in x_low
+    or a2, a2, a3
+    srli a4, a1, 8      #shift right 4 bits in x_high
+    # x = a1 a0 + a4 a2
+    add a0, a0, a2
+    slt a5, a0, a2      # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    
+    # x += (x >> 16)
+    slli a3, a1, 16     #put the shift value from x_high to correct position
+    srli a2, a0, 16     # shift right 4 bits in x_low
+    or a2, a2, a3
+    srli a4, a1, 16     #shift right 4 bits in x_high
+    # x = a1 a0 + a4 a2
+    add a0, a0, a2
+    slt a5, a0, a2      # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    
+    # x += (x >> 32)
+    slli a3, a1, 0
+    li a7, 32      #put the shift value from x_high to correct position
+    srl a2, a0, a7 
+    or a2, a2, a3
+    srl a4, a1, s7 
+    # x = a1 a0 + a4 a2
+    add a0, a0, a2
+    slt a5, a0, a2      # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    
+    # (64 - (x & 0x7F))
+    addi t0, x0, 64
+    andi a0, a0, 0x7f
+    sub a0, t0, a0      # a0 represent the number of leading zeros
+    lw ra, 16(sp)
+    addi sp, sp, 24
+    ret
+sub:
+    addi a1, a1, -1
+    li a7, 0xffffffff
+    sub a7, a7, a2
+    addi a7, a7, 1
+    add a0, a7, a0
+    sub a1, a1, a4
+        sub a0, a0, a2
+    sub a1, a1, a4
+    #sub a1, a1, a5
+    
+    # x = ((x >> 2) & 0x3333333333333333) + (x & 0x3333333333333333)
+    slli a3, a1, 30     #put the shift value from x_high to correct position
+    srli a2, a0, 2           # shift right 2 bits in x_low
+    or a2, a2, a3
+    srli a4, a1, 2           #shift right 2 bits in x_high
+    li a7, 0x33333333
+    add t0, x0, a7
+    and a2, a2, t0       # lower 32 bits of ((x >> 2) & 0x3333333333333333)
+    and a4, a4, t0       # higher 32 bits of ((x >> 2) & 0x3333333333333333)
+    and a0, a0, t0       # lower 32 bits of (x & 0x3333333333333333)
+    and a1, a1, t0       # higher 32 bits of (x & 0x3333333333333333)
+    # x = a4 a2 + a1 a0
+    add a0, a0, a2
+    slt a5, a0, a2           # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    
+    # x = ((x >> 4) + x) & 0x0f0f0f0f0f0f0f0f
+    slli a3, a1, 28     #put the shift value from x_high to correct position
+    srli a2, a0, 4      # shift right 4 bits in x_low
+    or a2, a2, a3
+    srli a4, a1, 4      # shift right 4 bits in x_high
+    # add a4 a2 and a1 a0. ((x >> 4) + x)
+    add a0, a0, a2
+    slt a5, a0, a2      # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    # a1 a0 & 0x0f0f0f0f0f0f0f0f
+    li a7, 0x0f0f0f0f
+    add t0, x0, a7
+    and a0, a0, t0
+    and a1, a1, t0
+    
+    # x += (x >> 8)
+    slli a3, a1, 24     #put the shift value from x_high to correct position
+    srli a2, a0, 8      # shift right 4 bits in x_low
+    or a2, a2, a3
+    srli a4, a1, 8      #shift right 4 bits in x_high
+    # x = a1 a0 + a4 a2
+    add a0, a0, a2
+    slt a5, a0, a2      # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    
+    # x += (x >> 16)
+    slli a3, a1, 16     #put the shift value from x_high to correct position
+    srli a2, a0, 16     # shift right 4 bits in x_low
+    or a2, a2, a3
+    srli a4, a1, 16     #shift right 4 bits in x_high
+    # x = a1 a0 + a4 a2
+    add a0, a0, a2
+    slt a5, a0, a2      # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    
+    # x += (x >> 32)
+    slli a3, a1, 0
+    li a7, 32      #put the shift value from x_high to correct position
+    srl a2, a0, a7 
+    or a2, a2, a3
+    srl a4, a1, s7 
+    # x = a1 a0 + a4 a2
+    add a0, a0, a2
+    slt a5, a0, a2      # a5 = 1 when a0 < a2
+    add a1, a1, a4
+    add a1, a1, a5
+    
+    # (64 - (x & 0x7F))
+    addi t0, x0, 64
+    andi a0, a0, 0x7f
+    sub a0, t0, a0      # a0 represent the number of leading zeros
+    lw ra, 16(sp)
+    addi sp, sp, 24
+    ret
+    
+    
+    
+
+        
