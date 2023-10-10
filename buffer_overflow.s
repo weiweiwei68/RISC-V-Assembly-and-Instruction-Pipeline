@@ -144,9 +144,8 @@ sub:
     addi a7, a7, 1
     add a0, a7, a0
     sub a1, a1, a4
-        sub a0, a0, a2
-    sub a1, a1, a4
-    #sub a1, a1, a5
+
+
     
     # x = ((x >> 2) & 0x3333333333333333) + (x & 0x3333333333333333)
     slli a3, a1, 30     #put the shift value from x_high to correct position
